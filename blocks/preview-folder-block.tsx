@@ -4,21 +4,31 @@ import { useEffect, useState } from "react";
 export default function (props: FolderBlockProps) {
   const { context, onRequestGitHubData } = props;
 
-  const [sha, setSha] = useState(context.sha);
-  const url = `https://${context.owner}.github.io/${context.repo}/${sha}`
+  const [url, setUrl] = useState<string | null>(null);
 
-  const updateSha = async () => {
-    const isShaBranchName = context.sha.length !== 40;
-    if (!isShaBranchName) return
-    const res = await onRequestGitHubData(
-      `/repos/${context.owner}/${context.repo}/git/refs/heads/${context.sha}`
-    );
-    const defaultSha = res.object.sha
-    setSha(defaultSha)
+  const updateUrl = async () => {
+    let sha = context.sha;
+
+    const isShaBranchName = sha.length !== 40;
+    if (isShaBranchName) {
+      const res = await onRequestGitHubData(
+        `/repos/${context.owner}/${context.repo}/git/refs/heads/${context.sha}`
+      );
+      sha = res.object.sha
+    }
+
+    const relativePath = context.path
+      .replace("pages/", "")
+      .split(".")[0]
+    const url = `https://${context.owner}.github.io/${context.repo}/${sha}/${relativePath}`
+    setUrl(url)
   }
+
   useEffect(() => {
-    updateSha()
+    updateUrl()
   }, [context.sha]);
+
+  if (!url) return null
 
   return (
     <iframe

@@ -5,7 +5,6 @@
     "title": "Preview Block",
     "description": "Preview your site (from a folder)",
     "entry": "blocks/preview-folder-block.tsx",
-    "matches": ["*"],
     "example_path": "https://github.com/githubnext/blocks-preview-experiment"
   },
   {
