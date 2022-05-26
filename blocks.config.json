@@ -1,9 +1,9 @@
 [
   {
     "type": "folder",
-    "id": "preview-block",
+    "id": "preview-folder-block",
     "title": "Preview Block",
-    "description": "Preview your site",
+    "description": "Preview your site (from a folder)",
     "entry": "blocks/preview-folder-block.tsx",
     "matches": ["*"],
     "example_path": "https://github.com/githubnext/blocks-preview-experiment"
@@ -12,7 +12,7 @@
     "type": "file",
     "id": "preview-file-block",
     "title": "Preview Block",
-    "description": "Preview your site",
+    "description": "Preview your site (from a file)",
     "entry": "blocks/preview-file-block.tsx",
     "matches": ["*.tsx, *.ts, *.jsx, *.js"],
     "example_path": "https://github.com/githubnext/blocks-preview-experiment/blob/main/pages/about.tsx"

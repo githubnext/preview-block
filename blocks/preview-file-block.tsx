@@ -28,7 +28,7 @@ export default function (props: FolderBlockProps) {
       src={url}
       style={{
         width: "100%",
-        height: "100%",
+        height: "100vh",
         border: "none",
       }}
     />

@@ -8,8 +8,11 @@ export default function (props: FolderBlockProps) {
   const url = `https://${context.owner}.github.io/${context.repo}/${sha}`
 
   const updateSha = async () => {
-    if (sha !== "HEAD") return
-    const res = await onRequestGitHubData(`/repos/${context.owner}/${context.repo}/git/refs/heads/main`);
+    const isShaBranchName = context.sha.length !== 40;
+    if (!isShaBranchName) return
+    const res = await onRequestGitHubData(
+      `/repos/${context.owner}/${context.repo}/git/refs/heads/${context.sha}`
+    );
     const defaultSha = res.object.sha
     setSha(defaultSha)
   }
@@ -22,7 +25,7 @@ export default function (props: FolderBlockProps) {
       src={url}
       style={{
         width: "100%",
-        height: "100%",
+        height: "100vh",
         border: "none",
       }}
     />
