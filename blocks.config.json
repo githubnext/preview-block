@@ -13,7 +13,7 @@
     "title": "Preview Block",
     "description": "Preview your site (from a file)",
     "entry": "blocks/preview-file-block.tsx",
-    "matches": ["*.tsx, *.ts, *.jsx, *.js"],
+    "matches": ["*.tsx", "*.ts", "*.jsx", "*.js"],
     "example_path": "https://github.com/githubnext/blocks-preview-experiment/blob/main/pages/about.tsx"
   }
 ]
