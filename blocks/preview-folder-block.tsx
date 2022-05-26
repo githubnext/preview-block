@@ -8,13 +8,16 @@ export default function (props: FolderBlockProps) {
 
   const updateUrl = async () => {
     let sha = context.sha;
+    if (sha === "HEAD") sha = "main"
 
     const isShaBranchName = sha.length !== 40;
     if (isShaBranchName) {
-      const res = await onRequestGitHubData(
-        `/repos/${context.owner}/${context.repo}/git/refs/heads/${context.sha}`
-      );
-      sha = res.object.sha
+      try {
+        const res = await onRequestGitHubData(
+          `/repos/${context.owner}/${context.repo}/git/refs/heads/${sha}`
+        );
+        sha = res.object.sha
+      } catch { }
     }
 
     const relativePath = context.path
