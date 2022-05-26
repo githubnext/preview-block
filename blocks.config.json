@@ -1,20 +1,20 @@
 [
   {
-    "type": "file",
-    "id": "file-block",
-    "title": "Example File Block",
-    "description": "A basic file block",
-    "entry": "blocks/example-file-block/index.tsx",
+    "type": "folder",
+    "id": "preview-block",
+    "title": "Preview Block",
+    "description": "Preview your site",
+    "entry": "blocks/preview-folder-block.tsx",
     "matches": ["*"],
-    "example_path": "https://github.com/facebook/react/blob/main/packages/react-dom/index.js"
+    "example_path": "https://github.com/githubnext/blocks-preview-experiment"
   },
   {
-    "type": "folder",
-    "id": "folder-block",
-    "title": "Example Folder Block",
-    "description": "A basic folder block",
-    "entry": "blocks/example-folder-block.tsx",
-    "matches": ["*"],
-    "example_path": "https://github.com/githubocto/flat"
+    "type": "file",
+    "id": "preview-file-block",
+    "title": "Preview Block",
+    "description": "Preview your site",
+    "entry": "blocks/preview-file-block.tsx",
+    "matches": ["*.tsx, *.ts, *.jsx, *.js"],
+    "example_path": "https://github.com/githubnext/blocks-preview-experiment/blob/main/pages/about.tsx"
   }
 ]
